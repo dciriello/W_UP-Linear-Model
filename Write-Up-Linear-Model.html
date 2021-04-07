@@ -229,6 +229,7 @@ summary.lm(model.1)</code></pre>
 ## Residual standard error: 1.226 on 145 degrees of freedom
 ## Multiple R-squared:  0.4706, Adjusted R-squared:  0.467 
 ## F-statistic: 128.9 on 1 and 145 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>This adjusted R-squared is the second smallest of the 3 models. This means it has the second least amount of correction, which makes it more accurate than model 2 but less accurate than model 3.</p>
 <pre class="r"><code>newdata=data.frame(GRIP=94, ARM=88)
 predict(model.1,newdata,interval=&quot;prediction&quot;)</code></pre>
 <pre><code>##         fit       lwr      upr
@@ -275,6 +276,7 @@ summary.lm(model.2)</code></pre>
 <pre class="r"><code>predict(model.2,newdata,interval=&quot;prediction&quot;)</code></pre>
 <pre><code>##          fit       lwr      upr
 ## 1 -0.5361543 -3.107961 2.035652</code></pre>
+<p>This model has the smallest Adjusted R-squared value. This means that it has the smallest amount of correction and is the least accurate model out of the 3 we made.</p>
 </div>
 <div id="now-add-the-model-fit-to-our-plot-1" class="section level1">
 <h1>now add the model fit to our plot</h1>
@@ -306,6 +308,7 @@ summary.lm(model.3)</code></pre>
 <pre><code>##         fit       lwr      upr
 ## 1 0.1496476 -2.132373 2.431668</code></pre>
 <p>SIMS=-5.43+.037 * ARM + .024 * GRIP</p>
+<p>This model has the highest Adjusted R-squared value. It performed the most correction and produced the most accurate model out of the 3 models we created.</p>
 <pre class="r"><code>anova(model.1, model.3)</code></pre>
 <pre><code>## Analysis of Variance Table
 ## 
@@ -316,6 +319,7 @@ summary.lm(model.3)</code></pre>
 ## 2    144 188.43  1     29.45 22.506 4.994e-06 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>We reject the null hypothesis because the P-value is extremely small (.000005) and we conclude that the best model for predicting the sims is model 3. This anova shows that model 3 changed/fixed it by 29.45.</p>
 </div>
 
 

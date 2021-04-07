@@ -49,6 +49,7 @@ cor(SIMS~ARM,data=data)
 model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
 ```
+This adjusted R-squared is the second smallest of the 3 models. This means it has the second least amount of correction, which makes it more accurate than model 2 but less accurate than model 3.
 
 ```{r}
 newdata=data.frame(GRIP=94, ARM=88)
@@ -88,6 +89,7 @@ summary.lm(model.2)
 predict(model.2,newdata,interval="prediction")
 ```
 
+This model has the smallest Adjusted R-squared value. This means that it has the smallest amount of correction and is the least accurate model out of the 3 we made.
 
 # now add the model fit to our plot
   
@@ -107,7 +109,10 @@ predict(model.3,newdata,interval="prediction")
 ```
 SIMS=-5.43+.037 * ARM + .024 * GRIP
 
+This model has the highest Adjusted R-squared value. It performed the most correction and produced the most accurate model out of the 3 models we created.
+
 ```{r}
 anova(model.1, model.3)
 ```
 
+We reject the null hypothesis because the P-value is extremely small (.000005) and we conclude that the best model for predicting the sims is model 3. This anova shows that model 3 changed/fixed it by 29.45.
