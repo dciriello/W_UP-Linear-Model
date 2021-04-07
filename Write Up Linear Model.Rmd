@@ -106,3 +106,8 @@ summary.lm(model.3)
 predict(model.3,newdata,interval="prediction")
 ```
 SIMS=-5.43+.037 * ARM + .024 * GRIP
+
+```{r}
+anova(model.1, model.3)
+```
+

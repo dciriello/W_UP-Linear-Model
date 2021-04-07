@@ -306,6 +306,16 @@ summary.lm(model.3)</code></pre>
 <pre><code>##         fit       lwr      upr
 ## 1 0.1496476 -2.132373 2.431668</code></pre>
 <p>SIMS=-5.43+.037 * ARM + .024 * GRIP</p>
+<pre class="r"><code>anova(model.1, model.3)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: SIMS ~ ARM
+## Model 2: SIMS ~ ARM + GRIP
+##   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1    145 217.88                                  
+## 2    144 188.43  1     29.45 22.506 4.994e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
 
 
